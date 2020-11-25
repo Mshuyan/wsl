@@ -92,7 +92,16 @@ $ ip route | grep default | awk '{print $3}'
     ![image-20201122003531839](assets/image-20201122003531839.png) 
 
   + 取消`hosts`文件只读属性
-  
+
+  + 设置系统允许运行自定义`powershell`脚本
+
+    以管理员身份在`powershell`命令行运行
+
+    ```powershell
+    # 设置一次就永久有效了
+    set-executionpolicy remotesigned
+    ```
+
 + 配置完成后，每次`wsl2`网络适配器变更都会运行该脚本，修改`hosts`文件，`wsl2`内`hosts`文件也会对应修改
 
   windows通过`wsl.local`可以访问`wsl2`
