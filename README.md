@@ -1,12 +1,10 @@
-# wsl
-
-## wsl2获取宿主机IP
+# wsl2获取宿主机IP
 
 ```sh
 $ ip route | grep default | awk '{print $3}'
 ```
 
-## wsl2动态IP
+# wsl2动态IP
 
 > 参考资料：https://lengthmin.me/posts/wsl2-network-tricks/
 
@@ -108,6 +106,14 @@ $ ip route | grep default | awk '{print $3}'
 
   `wsl2`通过`win.local`可以访问windows
 
-## 局域网访问WSL2
+# 局域网访问WSL2
 
 [wsl2动态IP](wsl2动态IP)脚本中`redirect_port`变量值改为`TRUE`（19行），`ports`变量中加入要转发的端口（23行），运行脚本，即可实现端口转发，局域网访问wsl2
+
+# 默认root登陆
+
+powershell中执行
+
+```sh
+ubuntu1804 config --default-user root
+```
