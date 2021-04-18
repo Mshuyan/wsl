@@ -90,7 +90,16 @@ $ ip route | grep default | awk '{print $3}'
     ![image-20201122003531839](assets/image-20201122003531839.png) 
 
   + 取消`hosts`文件只读属性
-  
+
+  + 设置系统允许运行自定义`powershell`脚本
+
+    以管理员身份在`powershell`命令行运行
+
+    ```powershell
+    # 设置一次就永久有效了
+    set-executionpolicy remotesigned
+    ```
+
 + 配置完成后，每次`wsl2`网络适配器变更都会运行该脚本，修改`hosts`文件，`wsl2`内`hosts`文件也会对应修改
 
   windows通过`wsl.local`可以访问`wsl2`
@@ -105,6 +114,13 @@ $ ip route | grep default | awk '{print $3}'
 
 [wsl2动态IP](wsl2动态IP)脚本中`redirect_port`变量值改为`TRUE`（19行），`ports`变量中加入要转发的端口（23行），运行脚本，即可实现端口转发，局域网访问wsl2
 
+# 默认root登陆
+
+powershell中执行
+
+```sh
+ubuntu1804 config --default-user root
+```
 # 参考的对象类型不支持尝试的操作
 
 管理员运行`powershell`执行
@@ -112,4 +128,3 @@ $ ip route | grep default | awk '{print $3}'
 ```
 netsh winsock reset
 ```
-
