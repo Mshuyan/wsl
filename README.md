@@ -1,12 +1,10 @@
-# wsl
-
-## wsl2获取宿主机IP
+# wsl2获取宿主机IP
 
 ```sh
 $ ip route | grep default | awk '{print $3}'
 ```
 
-## wsl2动态IP
+# wsl2动态IP
 
 > 参考资料：https://lengthmin.me/posts/wsl2-network-tricks/
 
@@ -98,7 +96,20 @@ $ ip route | grep default | awk '{print $3}'
   windows通过`wsl.local`可以访问`wsl2`
 
   `wsl2`通过`win.local`可以访问windows
+  
++ 通过域名访问时如果开启了代理，需要桡骨该域名
 
-## 局域网访问WSL2
+  ![image-20201220221235122](assets/image-20201220221235122.png) 
+
+# 局域网访问WSL2
 
 [wsl2动态IP](wsl2动态IP)脚本中`redirect_port`变量值改为`TRUE`（19行），`ports`变量中加入要转发的端口（23行），运行脚本，即可实现端口转发，局域网访问wsl2
+
+# 参考的对象类型不支持尝试的操作
+
+管理员运行`powershell`执行
+
+```
+netsh winsock reset
+```
+

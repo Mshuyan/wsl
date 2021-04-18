@@ -50,3 +50,6 @@ $HOSTS_CONTENT = $HOSTS_CONTENT + "`n$wslip $wsl_hosts # wsl_hosts`n$winip $win_
 Out-File -FilePath $HOSTS_PATH -InputObject $HOSTS_CONTENT -Encoding ASCII
 
 ipconfig /flushdns | Out-Null
+
+bash.exe -c "sed -in 's/^.*wsl.local.*$/$wslip $wsl_hosts/g' /etc/hosts"
+bash.exe -c "sed -in 's/^.*win.local.*$/$winip $win_hosts/g' /etc/hosts"
